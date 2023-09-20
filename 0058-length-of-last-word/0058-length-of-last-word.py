@@ -1,18 +1,11 @@
 class Solution:
     def lengthOfLastWord(self, s: str) -> int:
-        word = 0
-        tmp = 0
+        txt = s[::-1]
         i = 0
         count = 0
-        while i < len(s):
-            if s[i] != ' ':
-                if not word:
-                    tmp = i
-                    word = 1
-            else:
-                word = 0
+        while i < len(txt) and txt[i] == ' ':
             i += 1
-        while tmp < len(s) and s[tmp] != ' ':
+        while i < len(txt) and txt[i] != ' ':
+            i += 1
             count += 1
-            tmp += 1
         return count
